@@ -1,0 +1,24 @@
+{
+  "name": "hubhancho",
+  "description": "A package dependency list for using HubHoncho",
+  "version": "0.0.0",
+  "repository": "https://github.com/KevinnB/Koding-Hackathon_2016.git",
+  "license": "LGPL-3.0",
+  "main": "server.js",
+  "dependencies": {
+    "app-root-path": "^1.0.0",
+    "bcrypt-nodejs": "latest",
+    "body-parser": "~1.15.0",
+    "connect-flash": "~0.1.1",
+    "cookie-parser": "~1.4.1",
+    "express": "~4.13.4",
+    "express-session": "~1.13.0",
+    "method-override": "~2.3.5",
+    "mongoose": "latest",
+    "morgan": "~1.7.0",
+    "passport": "~0.3.2",
+    "passport-facebook": "~2.1.0 ",
+    "passport-instagram-token": "~2.3.0",
+    "passport-twitter": "~1.0.4"
+  }
+}

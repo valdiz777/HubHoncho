@@ -1,0 +1,23 @@
+<div class="dashboard-page">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" ui-sref="default">Honcho</a>
+      </div>
+        <ul class="nav navbar-nav navbar-right">
+          <!-- <li><a href="#">Link</a></li> -->
+          <li uib-dropdown>
+            <a id="user-dropdown" uib-dropdown-toggle><span class="fa fa-user"></span>&nbsp;{{user.userName || "User Name"}}</a>
+            <ul uib-dropdown-menu role="menu" aria-labelledby="user-dropdown">
+              <li role="menuitem"><a ui-sref="profile">Profile</a></li>
+              <li class="divider"></li>
+              <li role="menuitem"><a ng-click="user.logout()">
+                <span class="fa fa-power-off"></span>&nbsp;Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+    </div><!-- /.container-fluid -->
+  </nav>
+  <div ui-view></div>
+</div>
