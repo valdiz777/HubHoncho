@@ -2,7 +2,7 @@
   "name": "angular",
   "version": "1.0.0",
   "dependencies": {
-    "bootstrap": "latest",
+    "angular-ui-bootstrap-bower": "latest",
     "angular": "latest",
     "angular-ui-router": "latest",
     "ngInfiniteScroll": "latest",
