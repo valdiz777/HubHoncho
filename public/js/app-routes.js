@@ -2,7 +2,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
   //
   $locationProvider.html5Mode(false);
   // For any unmatched url, redirect to /state1
-  $urlRouterProvider.otherwise("/dashboard");
+  $urlRouterProvider.otherwise("/login");
   //
   // Now set up the states
   $stateProvider
