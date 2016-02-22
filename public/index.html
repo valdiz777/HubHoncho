@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="hubHoncho" ng-cloak>
+<html lang="en" ng-cloak>
 <head>
-    <meta charset="utf-8">
-   <base href="/">
+    <meta charset="UTF-8">
+    <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
@@ -20,11 +20,14 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body ng-app="hubHoncho">
 <div ui-view></div>
 <!-- Page Resources -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+<script src="libs/angular/angular.js"></script>
+<script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+
 
 <script src="/public/js/app.js" type="text/javascript"></script>
 <script src="/public/js/app-routes.js" type="text/javascript"></script>
@@ -34,9 +37,8 @@
 <script src="/public/js/services/AuthenticationFactory.js" type="text/javascript"></script>
 
 <!-- Controllers -->
-<script src="/public/js/controller/loginController.js" type="text/javascript"></script>
-<script src="/public/js/controller/dashboardController.js" type="text/javascript"></script>
-<script src="/public/js/controller/profileController.js" type="text/javascript"></script>
-
+<script src="/public/js/controller/LoginController.js" type="text/javascript"></script>
+<script src="/public/js/controller/DashboardController.js" type="text/javascript"></script>
+<script src="/public/js/controller/ProfileController.js" type="text/javascript"></script>
 </body>
 </html>

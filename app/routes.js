@@ -4,7 +4,7 @@ module.exports = function (app, passport) {
 // frontend routes =========================================================
     // route to handle all angular requests
     app.get('*', function (req, res) {
-        res.sendFile(appRoot + '/public/views/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+        res.sendFile(appRoot + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
     });
 
 // =============================================================================
