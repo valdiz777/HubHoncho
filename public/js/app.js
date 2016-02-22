@@ -1,4 +1,4 @@
-var app = angular.module('socialMediaQuery',
+var app = angular.module('HubHoncho',
   ['ngStorage',
    'infinite-scroll',
    'satellizer',
