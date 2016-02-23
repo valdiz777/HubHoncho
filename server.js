@@ -12,7 +12,6 @@ var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var methodOverride = require('method-override');
 var configDB = require('./config/database.js');
 
 // configuration ===============================================================
@@ -27,7 +26,6 @@ app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json({type: 'application/vnd.api+json'})); // parse application/vnd.api+json as json
-app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request
 
 // required for passport
 app.use(session({secret: 'hubhoncho', name: "hubhoncho_cookie", resave: true, saveUninitialized: true})); // session secret

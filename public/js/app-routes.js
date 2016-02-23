@@ -1,6 +1,6 @@
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
   //
-  $locationProvider.html5Mode(false);
+  $locationProvider.html5Mode(true);
   // For any unmatched url, redirect to /state1
   $urlRouterProvider.otherwise("/login");
   //
@@ -13,14 +13,10 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         auth: false,
       }
     })
-  .state('auth', {
-        abstract: true,
-        templateUrl: "js/pages/layout/layout.html"
-    })
+
     .state('default', {
       url: "/dashboard",
       templateUrl: "js/pages/dashboard/dashboard.html",
-      parent: "auth",
       page: {
         auth: false,   // This needs to be true
       }
@@ -28,7 +24,6 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     .state('profile', {
       url: "/profile",
       templateUrl: "js/pages/profile/profile.html",
-      parent: "auth",
       page: {
         auth: false,   // This needs to be true
       }

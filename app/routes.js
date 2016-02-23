@@ -3,7 +3,7 @@ module.exports = function (app, passport) {
 
 // frontend routes =========================================================
     // route to handle all angular requests
-    app.get('*', function (req, res) {
+    app.get('/', function (req, res) {
         res.sendFile(appRoot + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
     });
 
@@ -12,6 +12,12 @@ module.exports = function (app, passport) {
 // =============================================================================
 
     // facebook -------------------------------
+
+    //Test HTTP routing
+    app.get('/test/facebook', function(req,res) {
+        console.log("facebook: I got the request");
+        res.json({payload: 'Facebook Request Processed'});
+    });
 
     // send to facebook to do the authentication
     app.get('/auth/facebook', passport.authenticate('facebook', {scope: 'email'}));
@@ -24,6 +30,11 @@ module.exports = function (app, passport) {
         }));
 
     // twitter --------------------------------
+    //Test HTTP routing
+    app.get('/test/twitter', function(req,res) {
+        console.log("twitter: I got the request");
+        res.json({payload: 'twitter Request Processed'});
+    });
 
     // send to twitter to do the authentication
     app.get('/auth/twitter', passport.authenticate('twitter', {scope: 'email'}));
@@ -37,6 +48,12 @@ module.exports = function (app, passport) {
 
 
     // instagram ---------------------------------
+
+    //Test HTTP routing
+    app.get('/test/instagram', function(req,res) {
+        console.log("instagram: I got the request");
+        res.json({payload: 'Instagram Request Processed'});
+    });
 
     // send to google to do the authentication
     app.get('/auth/instagram', passport.authenticate('instagram', {scope: 'email'}));

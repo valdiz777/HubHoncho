@@ -1,5 +1,3 @@
 {
-  "directory": "public/libs",
-  "proxy":"http://www-proxy.boeing.com:31060",
-  "https-proxy":"http://www-proxy.boeing.com:31060"
+  "directory": "public/libs"
 }
