@@ -7,6 +7,10 @@ module.exports = function (app, passport) {
         res.sendFile(appRoot + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
     });
 
+    app.get('/login', function (req,res) {
+        res.sendFile(appRoot + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+    });
+
 // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================
 // =============================================================================
@@ -32,8 +36,8 @@ module.exports = function (app, passport) {
     // twitter --------------------------------
     //Test HTTP routing
     app.get('/test/twitter', function(req,res) {
-        console.log("twitter: I got the request");
-        res.json({payload: 'twitter Request Processed'});
+        console.log("wwitter: I got the request");
+        res.json({payload: 'Twitter Request Processed'});
     });
 
     // send to twitter to do the authentication
