@@ -1,7 +1,8 @@
 // load all the things we need
+var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var TwitterStrategy = require('passport-twitter').Strategy;
-var InstagramStrategy = require('passport-instagram-token');
+var InstagramTokenStrategy = require('passport-instagram-token');
 
 // load up the user model
 var User = require('../app/models/user');
@@ -191,7 +192,7 @@ module.exports = function (passport) {
     // =========================================================================
     // INSTAGRAM LOGIN =========================================================
     // =========================================================================
-    passport.use(new InstagramStrategy({
+    passport.use(new InstagramTokenStrategy({
 
             clientID: configAuth.instagramAuth.clientID,
             clientSecret: configAuth.instagramAuth.clientSecret,

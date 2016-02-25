@@ -1,15 +1,45 @@
 module.exports = function (app, passport) {
     var appRoot = require('app-root-path');
+    var User = require(appRoot + '/app/models/user');
 
 // frontend routes =========================================================
     // route to handle all angular requests
-    app.get('/', function (req, res) {
-        res.sendFile(appRoot + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+     app.get('/', function (req, res) {
+     // load the single view file (angular will handle the page changes on the front-end)
+     res.sendFile(appRoot + '/public/index.html');
+     });
+
+     app.get('/login', function (req, res) {
+     // load the single view file (angular will handle the page changes on the front-end)
+     res.sendFile(appRoot + '/public/index.html');
+     });
+
+    app.get('/user/facebook/', function (req, res) {
+        // use mongoose to get all todos in the database
+        User.find(function (err, user) {
+
+            // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+            if (err)
+                res.send(err)
+
+            res.json(user); // return all todos in JSON format
+        });
+        res.json(User);
     });
 
-    app.get('/login', function (req,res) {
-        res.sendFile(appRoot + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+    // PROFILE SECTION =========================
+    app.get('/profile', isLoggedIn, function (req, res) {
+        res.render('profile.ejs', {
+            user: req.user
+        });
     });
+
+    // LOGOUT ==============================
+    app.get('/logout', function (req, res) {
+        req.logout();
+        res.redirect('/');
+    });
+
 
 // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================
@@ -18,7 +48,7 @@ module.exports = function (app, passport) {
     // facebook -------------------------------
 
     //Test HTTP routing
-    app.get('/test/facebook', function(req,res) {
+    app.get('/test/facebook', function (req, res) {
         console.log("facebook: I got the request");
         res.json({payload: 'Facebook Request Processed'});
     });
@@ -29,14 +59,14 @@ module.exports = function (app, passport) {
     // handle the callback after facebook has authenticated the user
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {
-            successRedirect: '/profile',
+            successRedirect: '/',
             failureRedirect: '/'
         }));
 
     // twitter --------------------------------
     //Test HTTP routing
-    app.get('/test/twitter', function(req,res) {
-        console.log("wwitter: I got the request");
+    app.get('/test/twitter', function (req, res) {
+        console.log("twitter: I got the request");
         res.json({payload: 'Twitter Request Processed'});
     });
 
@@ -46,7 +76,7 @@ module.exports = function (app, passport) {
     // handle the callback after twitter has authenticated the user
     app.get('/auth/twitter/callback',
         passport.authenticate('twitter', {
-            successRedirect: '/profile',
+            successRedirect: '/',
             failureRedirect: '/'
         }));
 
@@ -54,20 +84,16 @@ module.exports = function (app, passport) {
     // instagram ---------------------------------
 
     //Test HTTP routing
-    app.get('/test/instagram', function(req,res) {
+    app.get('/test/instagram', function (req, res) {
         console.log("instagram: I got the request");
         res.json({payload: 'Instagram Request Processed'});
     });
 
     // send to google to do the authentication
-    app.get('/auth/instagram', passport.authenticate('instagram', {scope: 'email'}));
+    app.get('/auth/instagram', passport.authenticate('instagram-token', {scope: 'email'}));
 
     // the callback after google has authenticated the user
-    app.get('/auth/instagram/callback',
-        passport.authenticate('instagram', {
-            successRedirect: '/profile',
-            failureRedirect: '/'
-        }));
+    app.get('/auth/instagram/callback', passport.authenticate('instagram-token'));
 
 // =============================================================================
 // AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT) =============
