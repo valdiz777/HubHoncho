@@ -2,7 +2,7 @@
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var TwitterStrategy = require('passport-twitter').Strategy;
-var InstagramTokenStrategy = require('passport-instagram-token');
+var InstagramStrategy = require('passport-instagram').Strategy;
 
 // load up the user model
 var User = require('../app/models/user');
@@ -192,7 +192,7 @@ module.exports = function (passport) {
     // =========================================================================
     // INSTAGRAM LOGIN =========================================================
     // =========================================================================
-    passport.use(new InstagramTokenStrategy({
+    passport.use(new InstagramStrategy({
 
             clientID: configAuth.instagramAuth.clientID,
             clientSecret: configAuth.instagramAuth.clientSecret,
@@ -217,9 +217,10 @@ module.exports = function (passport) {
 
                             // if there is a user id already but no token (user was linked at one point and then removed)
                             if (!user.instagram.token) {
+                                user.instagram.id = profile.id;
                                 user.instagram.token = token;
-                                user.instagram.name = profile.name.givenName + ' ' + profile.name.familyName;
-                                user.instagram.email = (profile.emails[0].value || '').toLowerCase();
+                                user.instagram.fullName = profile.displayName;
+                                user.instagram.username = (profile.username || '').toLowerCase();
 
                                 user.save(function (err) {
                                     if (err)
@@ -236,8 +237,8 @@ module.exports = function (passport) {
 
                             newUser.instagram.id = profile.id;
                             newUser.instagram.token = token;
-                            newUser.instagram.name = profile.name.givenName + ' ' + profile.name.familyName;
-                            newUser.instagram.email = (profile.emails[0].value || '').toLowerCase();
+                            newUser.instagram.fullName = profile.displayName;
+                            newUser.instagram.username = (profile.username || '').toLowerCase();
 
                             newUser.save(function (err) {
                                 if (err)
@@ -254,8 +255,8 @@ module.exports = function (passport) {
 
                     user.instagram.id = profile.id;
                     user.instagram.token = token;
-                    user.instagram.name = profile.name.givenName + ' ' + profile.name.familyName;
-                    user.instagram.email = (profile.emails[0].value || '').toLowerCase();
+                    user.instagram.fullName = profile.displayName;
+                    user.instagram.username = (profile.username || '').toLowerCase();
 
                     user.save(function (err) {
                         if (err)

@@ -9,11 +9,12 @@
     "app-root-path": "^1.0.0",
     "bcrypt-nodejs": "latest",
     "connect-flash": "latest",
+    "ejs" : "latest",
     "express": "latest",
     "mongoose": "latest",
     "passport": "~0.3.2",
     "passport-facebook": "~1.0.2 ",
-    "passport-instagram-token": "~2.3.0",
+    "passport-instagram": "latest",
     "passport-twitter": "~1.0.2",
 
     "morgan": "~1.0.0",

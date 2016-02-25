@@ -3,28 +3,9 @@ module.exports = function (app, passport) {
     var User = require(appRoot + '/app/models/user');
 
 // frontend routes =========================================================
-    // route to handle all angular requests
-     app.get('/', function (req, res) {
-     // load the single view file (angular will handle the page changes on the front-end)
-     res.sendFile(appRoot + '/public/index.html');
-     });
-
-     app.get('/login', function (req, res) {
-     // load the single view file (angular will handle the page changes on the front-end)
-     res.sendFile(appRoot + '/public/index.html');
-     });
-
-    app.get('/user/facebook/', function (req, res) {
-        // use mongoose to get all todos in the database
-        User.find(function (err, user) {
-
-            // if there is an error retrieving, send the error. nothing after res.send(err) will execute
-            if (err)
-                res.send(err)
-
-            res.json(user); // return all todos in JSON format
-        });
-        res.json(User);
+    // show the home page (will also have our login links)
+    app.get('/', function (req, res) {
+        res.render('index.ejs');
     });
 
     // PROFILE SECTION =========================
@@ -59,7 +40,7 @@ module.exports = function (app, passport) {
     // handle the callback after facebook has authenticated the user
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {
-            successRedirect: '/',
+            successRedirect: '/profile',
             failureRedirect: '/'
         }));
 
@@ -76,7 +57,7 @@ module.exports = function (app, passport) {
     // handle the callback after twitter has authenticated the user
     app.get('/auth/twitter/callback',
         passport.authenticate('twitter', {
-            successRedirect: '/',
+            successRedirect: '/profile',
             failureRedirect: '/'
         }));
 
@@ -90,10 +71,14 @@ module.exports = function (app, passport) {
     });
 
     // send to google to do the authentication
-    app.get('/auth/instagram', passport.authenticate('instagram-token', {scope: 'email'}));
+    app.get('/auth/instagram', passport.authenticate('instagram', {scope: 'basic'}));
 
-    // the callback after google has authenticated the user
-    app.get('/auth/instagram/callback', passport.authenticate('instagram-token'));
+    // the callback after instagram has authenticated the user
+    app.get('/auth/instagram/callback',
+        passport.authenticate('instagram', {
+            successRedirect: '/profile',
+            failureRedirect: '/'
+    }));
 
 // =============================================================================
 // AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT) =============
@@ -127,7 +112,7 @@ module.exports = function (app, passport) {
     // instagram -------------------------------
 
     // send to instagram to do the authentication
-    app.get('/connect/instagram', passport.authorize('instagram', {scope: 'email'}));
+    app.get('/connect/instagram', passport.authorize('instagram', {scope: 'basic'}));
 
     // handle the callback after instagram has authorized the user
     app.get('/connect/instagram/callback',
@@ -142,16 +127,6 @@ module.exports = function (app, passport) {
 // used to unlink accounts. for social accounts, just remove the token
 // for local account, remove email and password
 // user account will stay active in case they want to reconnect in the future
-
-    // local -----------------------------------
-    app.get('/unlink/local', isLoggedIn, function (req, res) {
-        var user = req.user;
-        user.local.email = undefined;
-        user.local.password = undefined;
-        user.save(function (err) {
-            res.redirect('/profile');
-        });
-    });
 
     // facebook -------------------------------
     app.get('/unlink/facebook', isLoggedIn, function (req, res) {
@@ -172,9 +147,9 @@ module.exports = function (app, passport) {
     });
 
     // google ---------------------------------
-    app.get('/unlink/google', isLoggedIn, function (req, res) {
+    app.get('/unlink/instagram', isLoggedIn, function (req, res) {
         var user = req.user;
-        user.google.token = undefined;
+        user.instagram.token = undefined;
         user.save(function (err) {
             res.redirect('/profile');
         });

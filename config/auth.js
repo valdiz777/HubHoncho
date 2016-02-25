@@ -16,8 +16,8 @@ module.exports = {
     },
 
     'instagramAuth' : {
-        'clientID'         : 'f4a19318a6d3485ab78e950e9d05a5ce',
-        'clientSecret'     : 'e10b5c6cb35b4ea5a0cd630c3cd7749a',
+        'clientID'         : '7b297ccd426a4e4aa0e7a1b123d55b91',
+        'clientSecret'     : 'c1a300a2546f4b0cbb8bd7a8e6744bbc',
         'callbackURL'      : 'http://localhost:8080/auth/instagram/callback'
     }
 
