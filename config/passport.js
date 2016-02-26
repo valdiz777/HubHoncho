@@ -1,3 +1,4 @@
+'use strict';
 // load all the things we need
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;

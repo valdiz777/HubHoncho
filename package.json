@@ -6,21 +6,22 @@
   "license": "LGPL-3.0",
   "main": "server.js",
   "dependencies": {
-    "app-root-path": "^1.0.0",
+    "app-root-path" : "~1.0.0",
     "bcrypt-nodejs": "latest",
-    "connect-flash": "latest",
-    "ejs" : "latest",
-    "express": "latest",
-    "mongoose": "latest",
+    "body-parser": "~1.15.0",
+    "bower": "~1.7.7",
+    "connect-flash": "~0.1.1",
+    "express": "~4.13.4",
+    "mongoose": "~4.4.5",
     "passport": "~0.3.2",
-    "passport-facebook": "~1.0.2 ",
-    "passport-instagram": "latest",
-    "passport-twitter": "~1.0.2",
+    "passport-facebook": "~2.1.0 ",
+    "passport-instagram": "~1.0.0",
+    "passport-twitter": "~1.0.4",
 
-    "morgan": "~1.0.0",
-    "body-parser": "~1.0.0",
-    "cookie-parser": "~1.0.0",
-    "method-override": "~2.1.2",
+    "morgan": "~1.7.0",
+
+    "cookie-parser": "~1.4.1",
+    "method-override": "~2.3.5",
     "express-session": "~1.0.0"
   }
 }
