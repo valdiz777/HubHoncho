@@ -1,12 +1,17 @@
+'use strict';
 module.exports = function (app, passport) {
     var appRoot = require('app-root-path');
-    var User = require(appRoot + '/app/models/user');
 
 // frontend routes =========================================================
-    // show the home page (will also have our login links)
-    app.get('/', function (req, res) {
-        res.render('index.ejs');
+    // route to handle all angular requests
+    app.get('/', function(req, res) {
+        res.sendFile(appRoot + '/public/index.html');
     });
+
+    app.get('/login', function(req, res) {
+        res.sendFile(appRoot + '/public/index.html');
+    });
+
 
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function (req, res) {
@@ -21,7 +26,9 @@ module.exports = function (app, passport) {
         res.redirect('/');
     });
 
-
+// server routes ===========================================================
+    // handle things like api calls
+    // authentication routes
 // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================
 // =============================================================================
@@ -35,10 +42,10 @@ module.exports = function (app, passport) {
     });
 
     // send to facebook to do the authentication
-    app.get('/auth/facebook', passport.authenticate('facebook', {scope: 'email'}));
+    app.route('/auth/facebook', passport.authenticate('facebook', {scope: 'email'}));
 
     // handle the callback after facebook has authenticated the user
-    app.get('/auth/facebook/callback',
+    app.route('/auth/facebook/callback',
         passport.authenticate('facebook', {
             successRedirect: '/profile',
             failureRedirect: '/'
