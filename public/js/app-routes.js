@@ -2,7 +2,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     //
     $locationProvider.html5Mode(true);
     // For any unmatched url, redirect to /state1
-    $urlRouterProvider.otherwise("/login");
+    $urlRouterProvider.otherwise("/dashboard"); //change back
     //
     // Now set up the states
     $stateProvider
@@ -18,7 +18,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             templateUrl: "/views/dashboard.html",
             parent: "auth",
             page: {
-                auth: false,   // This needs to be true
+                auth: true,   // This needs to be true
             }
         })
         .state('profile', {
@@ -26,16 +26,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             templateUrl: "/views/profile.html",
             parent: "auth",
             page: {
-                auth: false,   // This needs to be true
+                auth: true,   // This needs to be true
             }
         })
-
-        .state('profile', {
-            url: "/profile",
-            templateUrl: "/views/profile.html",
-            parent: "auth",
-            page: {
-                auth: false,   // This needs to be true
-            }
-        });
 });

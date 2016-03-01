@@ -46,9 +46,12 @@ module.exports = function (app, passport) {
 
     // handle the callback after facebook has authenticated the user
     app.get('/auth/facebook/callback',
-        passport.authenticate('facebook', {
-            successRedirect: '/profile',
-            failureRedirect: '/'
+        passport.authenticate('facebook', function(req, res) {
+            if (req.user) {
+                res.status(200);
+            } else {
+                res.status(403);
+            }
         }));
 
     // twitter --------------------------------
@@ -162,6 +165,9 @@ module.exports = function (app, passport) {
         });
     });
 
+// =============================================================================
+// RETRIEVE USER INFO ==========================================================
+// =============================================================================
 };
 
 // route middleware to ensure user is logged in
