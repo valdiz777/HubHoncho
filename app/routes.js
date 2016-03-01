@@ -4,11 +4,11 @@ module.exports = function (app, passport) {
 
 // frontend routes =========================================================
     // route to handle all angular requests
-    app.get('/', function(req, res) {
+    app.get('/', function (req, res) {
         res.sendFile(appRoot + '/public/index.html');
     });
 
-    app.get('/login', function(req, res) {
+    app.get('/login', function (req, res) {
         res.sendFile(appRoot + '/public/index.html');
     });
 
@@ -45,14 +45,17 @@ module.exports = function (app, passport) {
     app.get('/auth/facebook', passport.authenticate('facebook', {scope: 'email'}));
 
     // handle the callback after facebook has authenticated the user
-    app.get('/auth/facebook/callback',
-        passport.authenticate('facebook', function(req, res) {
+    app.get('/auth/facebook/callback', function (req, res) {
+        var status = 0;
+        passport.authenticate('facebook', function (req, res) {
             if (req.user) {
-                res.status(200);
+                status = 200;
             } else {
-                res.status(403);
+                status = 403;
             }
-        }));
+        });
+        res.status(status);
+    });
 
     // twitter --------------------------------
     //Test HTTP routing
@@ -88,7 +91,7 @@ module.exports = function (app, passport) {
         passport.authenticate('instagram', {
             successRedirect: '/profile',
             failureRedirect: '/'
-    }));
+        }));
 
 // =============================================================================
 // AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT) =============
