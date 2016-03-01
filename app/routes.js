@@ -42,7 +42,17 @@ module.exports = function (app, passport) {
     });
 
     // send to facebook to do the authentication
-    app.get('/auth/facebook', passport.authenticate('facebook', {scope: 'email'}));
+    app.get('/auth/facebook', function (req, res) {
+        var status = 0;
+        passport.authenticate('facebook', {scope: 'email'}, function (req, res) {
+            if (req.user) {
+                status = 200;
+            } else {
+                status = 403;
+            }
+        });
+        res.status(status);
+    });
 
     // handle the callback after facebook has authenticated the user
     app.get('/auth/facebook/callback', function (req, res) {
@@ -103,11 +113,17 @@ module.exports = function (app, passport) {
     app.get('/connect/facebook', passport.authorize('facebook', {scope: 'email'}));
 
     // handle the callback after facebook has authorized the user
-    app.get('/connect/facebook/callback',
-        passport.authorize('facebook', {
-            successRedirect: '/profile',
-            failureRedirect: '/'
-        }));
+    app.get('/connect/facebook/callback',function (req, res) {
+        var status = 0;
+        passport.authorize('facebook', function (req, res) {
+            if (req.user) {
+                status = 200;
+            } else {
+                status = 403;
+            }
+        });
+        res.status(status);
+    });
 
     // twitter --------------------------------
 
