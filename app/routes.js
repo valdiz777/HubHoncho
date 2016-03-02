@@ -4,11 +4,11 @@ module.exports = function (app, passport) {
 
 // frontend routes =========================================================
     // route to handle all angular requests
-    app.get('/', function(req, res) {
+    app.get('/', function (req, res) {
         res.sendFile(appRoot + '/public/index.html');
     });
 
-    app.get('/login', function(req, res) {
+    app.get('/login', function (req, res) {
         res.sendFile(appRoot + '/public/index.html');
     });
 
@@ -42,14 +42,30 @@ module.exports = function (app, passport) {
     });
 
     // send to facebook to do the authentication
-    app.get('/auth/facebook', passport.authenticate('facebook', {scope: 'email'}));
+    app.get('/auth/facebook', function (req, res) {
+        var status = 0;
+        passport.authenticate('facebook', {scope: 'email'}, function (req, res) {
+            if (req.user) {
+                status = 200;
+            } else {
+                status = 403;
+            }
+        });
+        res.status(status);
+    });
 
     // handle the callback after facebook has authenticated the user
-    app.get('/auth/facebook/callback',
-        passport.authenticate('facebook', {
-            successRedirect: '/profile',
-            failureRedirect: '/'
-        }));
+    app.get('/auth/facebook/callback', function (req, res) {
+        var status = 0;
+        passport.authenticate('facebook', function (req, res) {
+            if (req.user) {
+                status = 200;
+            } else {
+                status = 403;
+            }
+        });
+        res.status(status);
+    });
 
     // twitter --------------------------------
     //Test HTTP routing
@@ -85,7 +101,7 @@ module.exports = function (app, passport) {
         passport.authenticate('instagram', {
             successRedirect: '/profile',
             failureRedirect: '/'
-    }));
+        }));
 
 // =============================================================================
 // AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT) =============
@@ -97,11 +113,17 @@ module.exports = function (app, passport) {
     app.get('/connect/facebook', passport.authorize('facebook', {scope: 'email'}));
 
     // handle the callback after facebook has authorized the user
-    app.get('/connect/facebook/callback',
-        passport.authorize('facebook', {
-            successRedirect: '/profile',
-            failureRedirect: '/'
-        }));
+    app.get('/connect/facebook/callback',function (req, res) {
+        var status = 0;
+        passport.authorize('facebook', function (req, res) {
+            if (req.user) {
+                status = 200;
+            } else {
+                status = 403;
+            }
+        });
+        res.status(status);
+    });
 
     // twitter --------------------------------
 
@@ -162,6 +184,9 @@ module.exports = function (app, passport) {
         });
     });
 
+// =============================================================================
+// RETRIEVE USER INFO ==========================================================
+// =============================================================================
 };
 
 // route middleware to ensure user is logged in
