@@ -1,0 +1,1 @@
+HonchoDB = new Mongo.Collection("hubhoncho");
