@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f149c6a8-9280-4623-9afa-9d00d953164d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/HubHoncho_node_modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/meteor_packages_auto_import_browser.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/meteor_packages_auto_import_npm.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="HubHoncho.iws" />
     <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -215,12 +212,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1463336495369</updated>
-      <workItem from="1463336496963" duration="112000" />
+      <workItem from="1463336496963" duration="974000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112000" />
+    <option name="totallyTimeSpent" value="974000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-16" y="-16" width="3232" height="1732" extended-state="6" />
