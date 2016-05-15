@@ -258,6 +258,8 @@
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/aldeed_autoform/5.8.1/web.browser/components/afArrayField/afArrayField.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/aldeed_autoform/5.8.1/web.browser/components/afFormGroup/afFormGroup.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/aldeed_autoform/5.8.1/web.browser/components/quickForm/quickForm.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/bozhao_accounts-instagram/0.2.0/web.browser/packages/bozhao_accounts-instagram.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/bozhao_accounts-instagram/0.2.0/web.browser/packages/bozhao_accounts-instagram/instagram_login_button.css" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/observe-sequence/1.0.11/web.browser/observe_sequence.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/aldeed_autoform/5.8.1/web.browser/components/autoForm/autoForm.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/aldeed_autoform/5.8.1/web.browser/templates/bootstrap3-horizontal/bootstrap3-horizontal.css" />
@@ -665,6 +667,8 @@
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/aldeed_autoform/5.8.1/web.browser/components/afArrayField/afArrayField.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/aldeed_autoform/5.8.1/web.browser/components/afFormGroup/afFormGroup.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/aldeed_autoform/5.8.1/web.browser/components/quickForm/quickForm.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/bozhao_accounts-instagram/0.2.0/web.browser/packages/bozhao_accounts-instagram.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/bozhao_accounts-instagram/0.2.0/web.browser/packages/bozhao_accounts-instagram/instagram_login_button.css" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/observe-sequence/1.0.11/web.browser/observe_sequence.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/aldeed_autoform/5.8.1/web.browser/components/autoForm/autoForm.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/aldeed_autoform/5.8.1/web.browser/templates/bootstrap3-horizontal/bootstrap3-horizontal.css" />
