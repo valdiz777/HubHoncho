@@ -10,7 +10,7 @@ export const MainLayout = ({content}) => (
             <nav>
                 <a href="/profile">Profile</a>
                 <a href="/dashboard">Dashboard</a>
-             
+                <AccountsUI />
             </nav>
         </header>
         <main>
