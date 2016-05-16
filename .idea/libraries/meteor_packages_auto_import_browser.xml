@@ -323,6 +323,7 @@
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/tracker/1.0.13/web.browser/deprecated.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/tracker/1.0.13/web.browser/tracker.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/aldeed_autoform/5.8.1/web.browser/autoform-events.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/force-ssl/1.0.11/web.browser/force_ssl_common.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/accounts-ui-unstyled/1.1.12/web.browser/login_buttons_single.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/accounts-ui-unstyled/1.1.12/web.browser/login_buttons_session.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/underscore/1.0.8/web.browser/underscore.js" />
@@ -732,6 +733,7 @@
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/tracker/1.0.13/web.browser/deprecated.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/tracker/1.0.13/web.browser/tracker.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/aldeed_autoform/5.8.1/web.browser/autoform-events.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/force-ssl/1.0.11/web.browser/force_ssl_common.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/accounts-ui-unstyled/1.1.12/web.browser/login_buttons_single.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/accounts-ui-unstyled/1.1.12/web.browser/login_buttons_session.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/underscore/1.0.8/web.browser/underscore.js" />
